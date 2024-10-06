@@ -1,11 +1,3 @@
-To install dependencies:
-```sh
-bun install
-```
+# hono-graphql
 
-To run:
-```sh
-bun run dev
-```
-
-open http://localhost:3000
+Hono + GraphQL + Prismaでなにか作ってみる
