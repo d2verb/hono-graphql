@@ -3,16 +3,20 @@
   "scripts": {
     "dev": "bun run --hot src/index.ts",
     "check": "bunx @biomejs/biome check ./src",
-    "check:fix": "bunx @biomejs/biome check --fix ./src"
+    "check:fix": "bunx @biomejs/biome check --fix ./src",
+    "db:push": "bunx prisma db push --force-reset",
+    "db:seed": "bun run prisma/seed.ts"
   },
   "dependencies": {
     "@pothos/core": "^4.2.0",
+    "@prisma/client": "^5.20.0",
     "graphql": "^16.9.0",
     "graphql-yoga": "^5.7.0",
     "hono": "^4.6.3"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.3",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "prisma": "^5.20.0"
   }
 }
