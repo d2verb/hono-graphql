@@ -1,0 +1,7 @@
+[tasks.up]
+  run = "docker compose up -d"
+  description = "Start the docker compose stack"
+
+[tasks.down]
+  run = "docker compose down"
+  description = "Stop the docker compose stack"
