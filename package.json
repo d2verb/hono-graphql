@@ -5,6 +5,7 @@
     "check": "bunx @biomejs/biome check ./src",
     "check:fix": "bunx @biomejs/biome check --fix ./src",
     "db:push": "bunx prisma db push --force-reset",
+    "db:generate": "bunx prisma generate",
     "db:seed": "bun run prisma/seed.ts"
   },
   "dependencies": {

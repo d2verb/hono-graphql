@@ -14,7 +14,7 @@ async function main() {
     data: {
       title: "Test Post",
       content: "Test Content",
-      authorId: user.id,
+      userId: user.id,
     },
   });
 }
