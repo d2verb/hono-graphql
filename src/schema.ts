@@ -1,6 +1,20 @@
 import SchemaBuilder from "@pothos/core";
+import PrismaPlugin from "@pothos/plugin-prisma";
+import { PrismaClient } from "@prisma/client";
 
-const builder = new SchemaBuilder({});
+import type PrismaTypes from "@pothos/plugin-prisma/generated";
+
+const prisma = new PrismaClient();
+
+const builder = new SchemaBuilder<{
+  PrismaTypes: PrismaTypes;
+}>({
+  plugins: [PrismaPlugin],
+  prisma: {
+    client: prisma,
+    onUnusedQuery: process.env.NODE_ENV === "production" ? null : "warn",
+  },
+});
 
 builder.queryType({
   fields: (t) => ({
@@ -8,35 +22,26 @@ builder.queryType({
       resolve: () => "world",
     }),
 
-    getPostsByUserId: t.field({
-      type: [Post],
+    getPostsByUserId: t.prismaField({
+      type: ["Post"],
       args: {
-        userId: t.arg.string(),
+        userId: t.arg.string({ required: true }),
       },
-      resolve: async (_, { userId }) => {
-        return [
-          {
-            id: "1",
-            title: "test",
-            content: "test",
+      resolve: async (query, root, args, ctx, info) => {
+        return prisma.post.findMany({
+          ...query,
+          where: {
+            userId: args.userId,
           },
-        ];
+        });
       },
     }),
   }),
 });
 
-interface Post {
-  id: string;
-  title: string;
-  content: string;
-}
-
-const Post = builder.objectRef<Post>("Post");
-
-Post.implement({
+builder.prismaObject("Post", {
   fields: (t) => ({
-    id: t.exposeString("id"),
+    id: t.exposeID("id"),
     title: t.exposeString("title"),
     content: t.exposeString("content"),
   }),
