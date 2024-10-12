@@ -1,11 +1,12 @@
 import { createYoga } from "graphql-yoga";
 import { Hono } from "hono";
-import { schema } from "./schema";
+import "./graphql";
+import { builder } from "./graphql/builder";
 const app = new Hono();
 
 const yoga = createYoga({
   graphqlEndpoint: "/",
-  schema,
+  schema: builder.toSchema({}),
 });
 
 app.mount("/graphql", yoga);
