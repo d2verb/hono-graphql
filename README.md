@@ -1,3 +1,3 @@
 # hono-graphql
 
-Hono + GraphQL + Prismaでなにか作ってみる
+Hono + GraphQL + Prismaで実験
