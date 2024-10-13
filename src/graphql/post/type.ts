@@ -1,5 +1,5 @@
-import type { Post } from "../../domain/post/entity";
-import { builder } from "../builder";
+import type { Post } from "@/domain/post/entity";
+import { builder } from "@/graphql/builder";
 
 export const PostRef = builder.objectRef<Post>("Post");
 

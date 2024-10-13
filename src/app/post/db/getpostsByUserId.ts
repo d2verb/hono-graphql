@@ -1,7 +1,7 @@
+import type { Post } from "@/domain/post/entity";
+import type { ObjectId } from "@/domain/shared/objectid";
 import type { PrismaClient } from "@prisma/client";
 import { ResultAsync } from "neverthrow";
-import type { Post } from "../../../domain/post/entity";
-import type { ObjectId } from "../../../domain/shared/objectid";
 
 export const getPostsByUserId =
   (prisma: PrismaClient) =>

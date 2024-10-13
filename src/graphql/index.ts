@@ -1,2 +1,2 @@
-import "./post/query";
-import "./post/type";
+import "@/graphql/post/query";
+import "@/graphql/post/type";

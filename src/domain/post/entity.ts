@@ -1,4 +1,4 @@
-import type { ObjectId } from "../shared/objectid";
+import type { ObjectId } from "@/domain/shared/objectid";
 
 export interface Post {
   id: ObjectId;

@@ -1,6 +1,6 @@
+import type { newtype } from "@/domain/shared/newtype";
 import { type Result, ok } from "neverthrow";
 import { uuidv7 } from "uuidv7";
-import type { newtype } from "./newtype";
 
 export type ObjectId = newtype<"ObjectId", string>;
 

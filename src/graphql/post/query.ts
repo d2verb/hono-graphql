@@ -1,7 +1,7 @@
+import { getPostsByUserId } from "@/app/post/db/getpostsByUserId";
+import { builder } from "@/graphql/builder";
+import { PostRef } from "@/graphql/post/type";
 import { PrismaClient } from "@prisma/client";
-import { getPostsByUserId } from "../../app/post/db/getpostsByUserId";
-import { builder } from "../builder";
-import { PostRef } from "./type";
 
 const prisma = new PrismaClient();
 
