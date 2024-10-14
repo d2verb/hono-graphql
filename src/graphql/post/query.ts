@@ -1,4 +1,4 @@
-import { getPostsByUserId } from "@/app/post/db/getpostsByUserId";
+import { getPostsByUserId } from "@/app/post/db/getPostsByUserId";
 import { builder } from "@/graphql/builder";
 import { PostRef } from "@/graphql/post/type";
 import { PrismaClient } from "@prisma/client";
